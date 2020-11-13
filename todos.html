@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html>
+    <head runat="server">
+        <title></title>
+        <link type="text/css" href="https://cdn.datatables.net/1.10.7/css/jquery.dataTables.css" rel="stylesheet">
+        <link type="text/css" href="_css/estilo_nav.css" rel="stylesheet"> 
+    </head>
+    <body>
+        <main>
+            
+            <nav>           
+                <ul id="menu-home">
+                    <li><a href="index.html">HOME</a></li>                              
+                </ul>              
+            </nav>   
+            
+            <h1>Tarefas</h1>
+            
+            <form id="form1" runat="server">
+                <div>
+                    <table id="tabela" class="display" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th>Id do Usuário</th>
+                                <th>Id</th>
+                                <th>Titulo</th>
+                                <th>Concluído</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>Id do Usuário</td>
+                                <td>id</td>
+                                <td>Titulo</td>
+                                <td>Concluído</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </form>
+            
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" type="text/javascript"></script>
+            <script src="https://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js" type="text/javascript"></script> 
+
+            <script type="text/javascript">
+                $(function () {            
+                    var url = "https://jsonplaceholder.typicode.com/todos";//Sua URL
+                    var xhttp = new XMLHttpRequest();
+
+                    xhttp.open("GET", url, false);
+                    xhttp.send();//A execução do script pára aqui até a requisição retornar do servidor
+
+                    var json = JSON.parse(xhttp.responseText);            
+
+                    $('#tabela').DataTable({
+                        "aaData": json,
+                        "aoColumns": [
+                            { "mDataProp": "userId" },
+                            { "mDataProp": "id" },
+                            { "mDataProp": "title" },
+                            { "mDataProp": "completed" },
+
+                        ],
+                    });
+                });
+
+            </script>
+        </main>    
+    </body>
+</html>
