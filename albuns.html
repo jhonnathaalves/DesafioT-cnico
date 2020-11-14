@@ -52,10 +52,10 @@
                     var json = JSON.parse(xhttp.responseText);            
 
                     $('#tabela').DataTable({
-						columnDefs: [
-							{ width: '20%', targets: 0 }
-						],
-						fixedColumns: true,
+                        columnDefs: [
+                            { width: '20%', targets: 0 }
+                        ],
+                        fixedColumns: true,
                         "aaData": json,
                         "aoColumns": [
                             { "mDataProp": "userId" },
