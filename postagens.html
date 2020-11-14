@@ -55,6 +55,10 @@
                     var json = JSON.parse(xhttp.responseText);            
 
                     $('#tabela').DataTable({
+						columnDefs: [
+							{ width: '20%', targets: 0 }
+						],
+						fixedColumns: true,
                         "aaData": json,
                         "aoColumns": [
                             { "mDataProp": "userId" },
@@ -62,14 +66,7 @@
                             { "mDataProp": "title" },
                             { "mDataProp": "body" },
 
-                        ],
-                         "language": [
-                             {"lengthMenu": "Mostrando MENU registros por página" },
-                             {"zeroRecords": "Nenhum Registro Encontrado"},
-                             {"info": "Mostrando Página PAGE de _PAGES_"},
-                             {"infoEmpty": "Nenhum registro Disponível"},
-                             {"infoFiltered": "(filtrado de MAX registro no total)"} 
-                        ],
+                        ],                         
                     });
                 });
 
