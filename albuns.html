@@ -27,14 +27,6 @@
                                 <th>Título</th>                      
                             </tr>
                         </thead>
-
-                        <tbody>
-                            <tr>
-                                <td>Id do Usuário</td>
-                                <td>Id</td>
-                                <td>Título</td>                   
-                            </tr>
-                        </tbody>
                     </table>
                 </div>
             </form>
@@ -43,11 +35,11 @@
 
             <script type="text/javascript">
                 $(function () {            
-                    var url = "https://jsonplaceholder.typicode.com/albums";//Sua URL
+                    var url = "https://jsonplaceholder.typicode.com/albums";
                     var xhttp = new XMLHttpRequest();
 
                     xhttp.open("GET", url, false);
-                    xhttp.send();//A execução do script pára aqui até a requisição retornar do servidor
+                    xhttp.send();
 
                     var json = JSON.parse(xhttp.responseText);            
 
